@@ -1,0 +1,24 @@
+fernando
+yo estoy haciendo la del padre, asi que necesitaria: 
+* tareas pendientes (tareas serias las tareas que te mandan en el colegio)
+* Los mensajes que tenga con el profesor. Uno de los chicos esta haciendo el chat
+pero esos mensajes se tendrian que poder guardar.
+* Calificaciones 
+* Proximos exámenes
+notas , asistencia, 
+
+
+Lorena
+datos de perfil del profesor, 
+los cursos, y grados de cursos
+reportes académicos
+reportes de evaluaciones,
+calendario académico
+
+comunicación entre padres y profesor	
+mensajes 
+notas pendientes
+horario de clases 
+
+curso
+materia
