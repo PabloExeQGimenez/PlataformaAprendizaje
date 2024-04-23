@@ -1,20 +1,17 @@
-const Profe = require('../models/Profe')
+const MensajeAlumno = require('../models/MensajeAlumno')
 
-const ProfeController = {
+const MensajeAlumnoController = {
   
-  crearProfe: async (req, res) =>{
-
+  crearMensajeAlumno: async (req, res) =>{
     try{
-      const {nombre, apellido, dni, email, usuario,
-        contrasena, direccion, localidad, provincia, cursos, materias} = req.body
-      const nuevoProfe = new Profe({
-        nombre, apellido, dni, email, usuario,
-        contrasena, direccion, localidad, provincia, cursos, materias
+      const {titulo, descripcion, fechaEnvio, estado} = req.body
+      const mensajeAlumno = new MensajeAlumno({
+        titulo, descripcion, fechaEnvio, estado
       })
-      await nuevoProfe.save()
+      await mensajeAlumno.save()
       return res.status(201).send({
         success: true,
-        nuevoProfe
+        mensajeAlumno
       })
     } catch(error){
       return res.status(500).send({
@@ -24,12 +21,12 @@ const ProfeController = {
     }
   },
 
-  obtenerProfes: async (req, res) =>{
+  obtenerMensajeAlumnos: async (req, res) =>{
     try{
-    const profes = await Profe.find()
+    const mensajeAlumnos = await MensajeAlumno.find()
     return res.status(200).send({
       success: true,
-      profes
+      mensajeAlumnos
     })
   } catch(error){
       return res.status(500).send({
@@ -39,10 +36,10 @@ const ProfeController = {
     }
   },
 
-  eliminarProfe: async (req, res) => {
+  eliminarMensajeAlumno: async (req, res) => {
     try{
       const {id} = await req.params
-      await Profe.findByIdAndDelete(id)
+      await MensajeAlumno.findByIdAndDelete(id)
       return res.status(200).send({
         success: true,
         message: "Profesor eliminado"
@@ -55,4 +52,4 @@ const ProfeController = {
     }
   }
 }
-module.exports = ProfeController
+module.exports = MensajeAlumnoController

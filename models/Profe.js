@@ -37,17 +37,13 @@ const ProfeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  curso: {
-    type: String,
-    default: "Desarrollo Backend"
-  },
-  grado: {
-    type: String,
-    default: "2°"
+  cursos: {
+    type: [String],
+    required: true
   },
   materias: {
     type: [String],
-    default: ["NODE.js", "MongoDB"]
+    required: true
   }
 })
 module.exports = mongoose.model('Profe', ProfeSchema);

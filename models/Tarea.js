@@ -9,18 +9,16 @@ const tareaSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  materia: String,
   fechaInicio:{
-    type: String,
+    type: Date,
     required: true
   },
   fechaEntrega:{
-    type: String,
+    type: Date,
     required:true
   },
-  estado:{
-    type: String,
-    required: true
-  },
+  estado:String,
   nota:{
     type: Number,
     required: true
