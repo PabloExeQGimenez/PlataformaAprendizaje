@@ -1,17 +1,17 @@
-const RepEvaluacion = require('../models/RepEvaluacion')
+const RepAcademico = require('../models/RepAcademico')
 
-const RepEvaluacionController = {
+const RepAcademicoController = {
 
-  crearRepEvaluacion: async (req, res) =>{
+  crearRepAcademico: async (req, res) =>{
     try{
       const {estudiante, notas, observaciones} = req.body
-      const nuevoRep = new RepEvaluacion({
+      const repAcademico = new RepAcademico({
         estudiante, notas, observaciones
       })
-      await nuevoRep.save()
+      await repAcademico.save()
       return res.status(201).send({
         success: true,
-        nuevoRep
+        repAcademico
       })
     } catch(error){
       return res.status(500).send({
@@ -21,12 +21,12 @@ const RepEvaluacionController = {
     }
   },
 
-  obtenerRepEvaluaciones: async (req, res) => {
+  obtenerRepAcademico: async (req, res) => {
     try{
-      const repEvaluaciones = await RepEvaluacion.find()
+      const repAcademicos = await RepAcademico.find()
       return res.status(200).send({
         success: true,
-        repEvaluaciones
+        repAcademicos
       })
     } catch (error){
       return res.status(500).send({
@@ -36,10 +36,10 @@ const RepEvaluacionController = {
     }
   },
 
-  eliminarRepEvaluacion: async (req, res) =>{
+  eliminarRepAcademico: async (req, res) =>{
     try{
       const {id} = req.params
-      await RepEvaluacion.findByIdAndDelete(id)
+      await RepAcademico.findByIdAndDelete(id)
       return res.status(200).send({
         success: true,
         message: "Reporte de evaluacion eliminado"
@@ -52,4 +52,4 @@ const RepEvaluacionController = {
     }
   }
 }
-module.exports = RepEvaluacionController
+module.exports = RepAcademicoController

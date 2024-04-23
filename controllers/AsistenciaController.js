@@ -4,13 +4,13 @@ const AsistenciaController = {
   crearAsistencia: async (req, res) => {
     try{
       const {estudiante, faltas, tardanzas, justificadas, observaciones} = req.body
-      const nuevaAsistencia = new Asistencia({
+      const asistencia = new Asistencia({
         estudiante, faltas, tardanzas, justificadas, observaciones
       })
-      await nuevaAsistencia.save()
+      await asistencia.save()
       return res.status(201).send({
         success: true,
-        nuevaAsistencia
+        asistencia
       })
     }catch (error){
       return res.status(500).send({
