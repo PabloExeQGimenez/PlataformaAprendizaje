@@ -28,10 +28,23 @@ const CursoController = {
     } catch(error){
       res.status(500).json({ error: 'Error al obtener tareas' });
     }
+  },
+
+  eliminarCurso: async (req,res)=>{
+    try{
+      const {id} = await req.params
+      await Curso.findByIdAndDelete(id)
+      return res.status(200).send({
+        success: true,
+        message: "Curso eliminado"
+      })
+
+    } catch(error){
+      return res.status(500).send({
+        success: false,
+        message: error.message
+      })
+    }
   }
-
-  // eliminarCurso: async (req,res)=>{
-
-  // }
 }
 module.exports = CursoController
