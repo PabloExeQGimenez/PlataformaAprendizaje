@@ -11,6 +11,7 @@ const RepAcademicoRouter = require('./routers/RepAcademicoRouter')
 const AsistenciaRouter = require('./routers/AsistenciaRouter')
 const EventoRouter = require('./routers/EventoRouter')
 const MensajeAlumnoRouter = require('./routers/MensajeAlumnoRouter')
+const RepExamenRouter = require('./routers/RepExamenRouter')
 
 app.use(express.json({ extended: true }))
 app.use(express.urlencoded())
@@ -24,6 +25,8 @@ app.use('/api', RepAcademicoRouter)
 app.use('/api', AsistenciaRouter)
 app.use('/api', EventoRouter)
 app.use('/api', MensajeAlumnoRouter)
+app.use('/api', RepExamenRouter)
+
 
 // coneccion BD
 const URL = process.env.MONGO_DB
